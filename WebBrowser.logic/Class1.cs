@@ -8,5 +8,6 @@ namespace WebBrowser.logic
 {
     public class Class1
     {
+
     }
 }
