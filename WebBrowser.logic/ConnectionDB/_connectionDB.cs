@@ -35,7 +35,6 @@ namespace BrowserUI.ConnectionDB
             Connection.Open();
             last_use = DateTime.Now;
         }
-
         public _connectionDB()
         {         
             RecreateConnection();
