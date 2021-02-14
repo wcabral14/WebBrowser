@@ -28,6 +28,7 @@ namespace BrowserUI.ConnectionDB
         {
             Connection.Close();
         }
+
         public void OpenConnection()
         {
             Connection.Open();
