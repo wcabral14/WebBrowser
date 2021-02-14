@@ -24,6 +24,7 @@ namespace BrowserUI.ConnectionDB
             Connection = new SqlConnection(connetionString);
             last_use = DateTime.Now;
         }
+
         public void CloseConnection()
         {
             Connection.Close();
