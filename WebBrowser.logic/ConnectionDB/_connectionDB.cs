@@ -20,7 +20,6 @@ namespace BrowserUI.ConnectionDB
         protected DateTime last_use;                                                                                          //when was the connection last used
                                                                                                                               //reconnect in _ minutes
 
-
         public void RecreateConnection()
         {
             Connection = new SqlConnection(connetionString);
