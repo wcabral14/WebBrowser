@@ -13,6 +13,11 @@ namespace BrowserUI.Bookmark
     public static class BookmarkManager
     {
         static _connectionDB MainDB = new _connectionDB();
+        public static bool DeleteItem(string URL, string title)
+        {
+            int result = MainDB.DoSQL2(String.Format("DELETE Bookmarks WHERE URL = '{0}' and TITLE = '{1}' ", URL, title));
+            return result != -999 ? true : false;
+        }
 
         //Method selects all records
         public static List<BookmarkItem> AllItems()

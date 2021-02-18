@@ -13,37 +13,40 @@ namespace BrowserUI.ConnectionDB
     public partial class _connectionDB
     {
         //Open connection
-        public void ReopenConnection()
+        public bool ReopenConnection()
         {
+            last_use = DateTime.Now;
             try { CloseConnection(); } catch { }      
         again:
             try
             {
                 OpenConnection();
+                return true;
             }
             catch (Exception e)
             {
                 if (MessageBox.Show("Server connection error. Please try again? \nMessage:\n" + e.Message, "Server connection",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1) == DialogResult.OK)
                 {
-                    System.Threading.Thread.Sleep(1000);
+                   
                     goto again;
                 }
                 else
                 {
-                    Application.Exit();
+                    return false;
+                
                     //return;
                     //throw;
                 }
             }
-            last_use = DateTime.Now;
+  
         }
 
         //command SQL : SELECT
         public DataSet MakeDataSet(string SQL)
         {
-           
-            ReopenConnection();
+
+            if (!ReopenConnection()) return null;
            
 
             SqlDataAdapter da = new SqlDataAdapter(SQL, Connection);
@@ -84,9 +87,10 @@ namespace BrowserUI.ConnectionDB
         //comand SQL : INSERT UPDATE DELETE
         public int DoSQL2(string SQL)
         {
-       
-            ReopenConnection();
-            
+
+
+            if (!ReopenConnection()) return -999;
+
             SqlCommand cmd = null;
             try
             {

@@ -11,10 +11,11 @@ namespace BrowserUI.History
         //Fields are only available in this class
         private string url { get; set; }
         private string title { get; set;  }
+
         private DateTime date { get; set; } = DateTime.Now;
 
         //this is the constructor of the class INSERT
-        public HistoryItem(string url, string title)
+        public HistoryItem( string url, string title)
         {
             this.url = url;
             this.title = title;
@@ -23,6 +24,7 @@ namespace BrowserUI.History
         public HistoryItem(DateTime date, string title, string url) : this(url, title)
         {
             this.date = date;
+ 
         }
 
 

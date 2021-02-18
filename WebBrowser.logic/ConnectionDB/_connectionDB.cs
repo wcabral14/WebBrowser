@@ -14,10 +14,12 @@ namespace BrowserUI.ConnectionDB
     {
         public static SqlConnection Connection;
         public string connetionString = @"Data Source=(LocalDB)\MSSQLLocalDB;
-                                        AttachDbFilename=C:\Users\wcabr\OneDrive\Desktop\CPSC_2713\wjc0027_module5project\WebBrowser.Data\WebBrowserDataDB.mdf;
-                                        Integrated Security = True";
+                                          AttachDbFilename=C:\Users\wcabr\OneDrive\Desktop\CPSC_2713\wjc0027_module6project\WebBrowser.Data\WebBrowserDataDB.mdf;
+                                          Integrated Security=True;Connect Timeout=30";
+                                        
         protected DateTime last_use;                                                                                          //when was the connection last used
                                                                                                                               //reconnect in _ minutes
+
 
         public void RecreateConnection()
         {

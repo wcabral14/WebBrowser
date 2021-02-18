@@ -11,6 +11,18 @@ namespace BrowserUI.History
     {
         static _connectionDB MainDB = new _connectionDB();
 
+        //Method delete item
+        public static int DeleteItem(string URL, string title)
+        { 
+            int result = MainDB.DoSQL2(String.Format("DELETE History WHERE URL = '{0}' and TITLE = N'{1}'", URL, title));
+            return result;
+        }
+        public static bool Delete()
+        {
+            int result = MainDB.DoSQL2("DELETE History ");
+            return result != -999 ? true : false;
+        }
+
         //Method selects all records
         public static List<HistoryItem> AllItems()
         {
