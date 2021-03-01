@@ -25,7 +25,7 @@ namespace BrowserUI.ConnectionDB
             }
             catch (Exception e)
             {
-                if (MessageBox.Show("Server connection error. Please try again? \nMessage:\n" + e.Message, "Server connection",
+                if (MessageBox.Show("Server connection error. Please try again?", "Server connection",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1) == DialogResult.OK)
                 {
                    
@@ -66,7 +66,7 @@ namespace BrowserUI.ConnectionDB
                 }
                 catch (SqlException e)
                 {
-                    if (MessageBox.Show("Server connection error. Please try again?  \nMessage:\n" + e.Message, "Server connection",
+                    if (MessageBox.Show("Server connection error. Please try again?", "Server connection",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1) == DialogResult.OK)
                     {
                         System.Threading.Thread.Sleep(1000);
@@ -115,7 +115,7 @@ namespace BrowserUI.ConnectionDB
                 }
                 catch (SqlException e)
                 {
-                    if (MessageBox.Show("Server connection error" + e.Message + ". Please try again?", "Server connection",
+                    if (MessageBox.Show("Server connection error. Please try again?", "Server connection",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1) == DialogResult.OK)
                     {
                         goto again;
